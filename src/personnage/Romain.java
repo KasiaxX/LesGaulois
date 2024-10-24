@@ -8,6 +8,7 @@ public class Romain {
 	public Romain(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
+		assert isInvariantVerified(); //arret le prog si faux
 	}
 
 	public String getNom() {
@@ -24,15 +25,20 @@ public class Romain {
 
 	public void recevoirCoup(int forceCoup) {
 		force -= forceCoup;
+		assert isInvariantVerified();
 		if (force > 0) {
 			parler("Aïe");
 		} else {
 			parler("J'abandonne...");
 		}
 	}
+	
+	private boolean isInvariantVerified() { //arret le prog si faux
+		return force > 0;
+	}
 
 	public static void main(String[] args) {
-		Romain tom = new Romain("Tom", 5);
+		Romain tom = new Romain("Tom", 6);
 		System.out.println(tom);
 		
 		tom.parler("Yooooo!");
