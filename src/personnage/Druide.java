@@ -1,6 +1,5 @@
 package personnage;
 
-import java.io.ObjectInputStream.GetField;
 import java.util.Random;
 
 public class Druide {
